@@ -1,8 +1,14 @@
 git add .
-git commit -m "feat(header): 모바일 헤더 UI 개선 및 햄버거 메뉴 추가"
+git commit -m "feat: 파비콘 및 페이지 제목 수정"
 git push
 
 npm run dev
+
+npm run build
+
+firebase deploy --only hosting
+
+
 
 ---
 

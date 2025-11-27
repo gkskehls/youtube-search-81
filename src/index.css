@@ -56,3 +56,122 @@ input {
   font-family: inherit;
   color: inherit;
 }
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--secondary-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.favorites-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+/* SearchBar Styles */
+.search-bar {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 600px;
+  margin: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 20px 0 0 20px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 0 20px 20px 0;
+  border: 1px solid var(--border-color);
+  border-left: none;
+  background-color: var(--secondary-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Hamburger Menu (Initially hidden) */
+.hamburger-button {
+  display: none;
+  font-size: 1.5rem;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 1rem;
+  }
+
+  .header-title-text {
+    display: none; /* Hide text on mobile */
+  }
+
+  .search-bar {
+    margin: 0 0.5rem;
+  }
+
+  .header-actions {
+    display: none; /* Hide desktop actions on mobile */
+  }
+
+  .hamburger-button {
+    display: block; /* Show hamburger button on mobile */
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    right: 0;
+    background-color: var(--secondary-bg);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    z-index: 99;
+  }
+
+  .mobile-menu .favorites-link {
+    font-size: 1rem;
+  }
+}

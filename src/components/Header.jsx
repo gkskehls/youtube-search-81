@@ -1,33 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import SearchBar from './SearchBar';
 
 const Header = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
-        <header style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '1rem 2rem',
-            backgroundColor: 'var(--secondary-bg)',
-            borderBottom: '1px solid var(--border-color)',
-            position: 'sticky',
-            top: 0,
-            zIndex: 100
-        }}>
-            <Link to="/" style={{ fontSize: '1.5rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
-                <span style={{ color: 'var(--primary-color)' }}>▶</span> YouTube Search
+        <header className="header">
+            <Link to="/" className="header-title">
+                <span style={{ color: 'var(--primary-color)' }}>▶</span>
+                <span className="header-title-text"> YouTube Search</span>
             </Link>
 
             <SearchBar />
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <Link to="/favorites" style={{ textDecoration: 'none', color: 'var(--text-color)', fontWeight: 'bold', fontSize: '0.9rem' }}>
+            {/* Desktop actions */}
+            <div className="header-actions">
+                <Link to="/favorites" className="favorites-link">
                     보관함
                 </Link>
                 <ThemeToggle />
             </div>
+
+            {/* Mobile hamburger button */}
+            <button
+                className="hamburger-button"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="메뉴 열기"
+            >
+                ☰
+            </button>
+
+            {/* Mobile menu */}
+            {menuOpen && (
+                <div className="mobile-menu">
+                    <Link to="/favorites" className="favorites-link" onClick={() => setMenuOpen(false)}>
+                        보관함
+                    </Link>
+                    <ThemeToggle />
+                </div>
+            )}
         </header>
     );
 };

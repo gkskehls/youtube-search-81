@@ -13,35 +13,18 @@ const SearchBar = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center', flex: 1, maxWidth: '600px', margin: '0 1rem' }}>
+        <form onSubmit={handleSubmit} className="search-bar">
             <input
                 type="text"
                 placeholder="검색"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
-                style={{
-                    width: '100%',
-                    padding: '0.6rem 1rem',
-                    borderRadius: '20px 0 0 20px',
-                    border: '1px solid var(--border-color)',
-                    backgroundColor: 'var(--bg-color)',
-                    color: 'var(--text-color)',
-                    outline: 'none',
-                    fontSize: '1rem'
-                }}
+                className="search-input"
             />
             <button
                 type="submit"
                 aria-label="Search"
-                style={{
-                    padding: '0.6rem 1.2rem',
-                    borderRadius: '0 20px 20px 0',
-                    border: '1px solid var(--border-color)',
-                    borderLeft: 'none',
-                    backgroundColor: 'var(--secondary-bg)',
-                    color: 'var(--text-color)',
-                    fontSize: '1rem'
-                }}
+                className="search-button"
             >
                 🔍
             </button>

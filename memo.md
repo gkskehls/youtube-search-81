@@ -1,5 +1,5 @@
 git add .
-git commit -m "feat: 파비콘 및 페이지 제목 수정"
+git commit -m "feat: 초기 페이지에 인기 동영상 목록 표시"
 git push
 
 npm run dev

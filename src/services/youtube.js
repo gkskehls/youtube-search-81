@@ -25,6 +25,29 @@ export const searchVideos = async (query) => {
     }
 };
 
+export const getPopularVideos = async () => {
+    if (!API_KEY || API_KEY === 'YOUR_YOUTUBE_API_KEY') {
+        console.warn('YouTube API Key is missing. Please update src/services/youtube.js');
+        return [];
+    }
+
+    try {
+        const response = await fetch(`${BASE_URL}/videos?part=snippet,statistics&chart=mostPopular&maxResults=24&regionCode=KR&key=${API_KEY}`);
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error.message || 'Failed to fetch popular videos');
+        }
+
+        const data = await response.json();
+        return data.items;
+    } catch (error) {
+        console.error('Error fetching popular videos:', error);
+        throw error;
+    }
+};
+
+
 export const getVideoDetails = async (videoId) => {
     if (!API_KEY || API_KEY === 'YOUR_YOUTUBE_API_KEY') return null;
 

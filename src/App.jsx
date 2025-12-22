@@ -13,9 +13,9 @@ export default function App() {
   return (
     <ThemeProvider>
       <StorageProvider>
-        <div className="app">
+        <div className="app min-h-screen bg-white dark:bg-[#0f0f0f] dark:text-white">
           <Header />
-          <main style={{ padding: '2rem' }}>
+          <main className="max-w-[1400px] mx-auto p-4">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/results" element={<SearchResults />} />
